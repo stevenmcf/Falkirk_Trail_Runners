@@ -1,10 +1,10 @@
 from flask import Flask, render_template
 
-# from controllers.segments_controller import segments_blueprint
+from controllers.runners_controller import runners_blueprint
 
 app = Flask(__name__)
 
-# app.register_blueprint(segments_blueprint)
+app.register_blueprint(runners_blueprint)
 
 @app.route('/')
 def home():
