@@ -4,14 +4,23 @@
 
 <h2> Runner directory</h2>
 
+<section>
+    <a href="runners/new">
+        <button>Add New Runners</button>
+    </a>
+   
+</section>
+
 {% for runner in all_runners %}
 
 <table>
     </tr>
-        
-           <tr> <td> {{runner.first_name}} {{runner.last_name}} </td></tr>       
-    
+        <th>Runner's ID</th>
+           <tr> <td> {{runner.id}}{{runner.first_name}} {{runner.last_name}} </td></tr>       
+    <th>Runners Name</th>
+
     </table>
+
     {% endfor %}
 
     {% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Add a new trail dog here !</h3>
+
+<form action="/runners" method="POST">
+        <input type="text" name="first-name" id="runner-first-name" placeholder="first name"> <br>
+        <input type="text" name="last-name" id="runner-last-name" placeholder="last name"> <br>
+        <input type="submit" value="Submit">
+</form>
+
+<aside>
+        <a href="/"><button type="submit"></button>Home</a>    
+</aside>
+
+{% endblock content %}
+
