@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS race_times;
 DROP TABLE IF EXISTS races;
 DROP TABLE IF EXISTS runners;
 
@@ -12,6 +13,12 @@ CREATE TABLE races (
     title VARCHAR (255),
     distance DECIMAL,
     elevation INT,
-    runner_time DECIMAL,
     runner_id INT REFERENCES runners(id)
 );
+
+CREATE TABLE race_times (
+    id SERIAL PRIMARY KEY,
+    time  DECIMAL,
+    race_id INT REFERENCES races(id),
+    runner_id INT REFERENCES runners(id)
+)
