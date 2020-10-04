@@ -1,13 +1,19 @@
-{% extends 'runners/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-    <h2> Runner directory</h2>
-<section>
-    <table>
+
+<h2> Runner directory</h2>
+
+{% for runner in all_runners %}
+
+<table>
+    </tr>
         
-    </table>
-
-</section>
+           <tr> <td> {{runner.first_name}} {{runner.last_name}} </td></tr>       
     
+    </table>
+    {% endfor %}
 
-{% endblock content %}
+    {% endblock %}
+    
+    <a href="runners/new">Add new runner</a>

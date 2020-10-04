@@ -9,7 +9,7 @@ runners_blueprint = Blueprint("runners", __name__)
 @runners_blueprint.route("/runners")
 def runners():
     runners = runner_repository.select_all()
-    return render_template("runners/index.html", runners=runners)
+    return render_template("runners/index.html", all_runners=runners)
 
 # NEW
 

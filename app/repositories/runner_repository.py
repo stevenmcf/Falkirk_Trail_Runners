@@ -23,14 +23,14 @@ def select_all():
     return runners
 
 def select(id):
-    runner = None
     sql = "SELECT * from runners WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
-
-    if result is not None:
-        runner = runner(result['first_name'], result['last_name'], result['id'])
+    # if result is not None:
+    runner = Runner(result['first_name'], result['last_name'], result['id'])
     return runner
+
+# Tested and works in python3 debugger
 
 def update(runner):
     sql = "UPDATE runner SET (first_name, last_name) = (%s, %s) WHERE id = %s"
