@@ -1,9 +1,9 @@
 class Race:
-    def __init__(self, title, distance, elevation, runner, id=None):
+    def __init__(self, title, distance, elevation, id=None):
         self.title = title
         self.distance = distance
         self.elevation = elevation
-        self.runner = runner
+        # self.runner = runner
         # self.runner_time = runner_time
         self.id = id
 

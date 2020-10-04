@@ -5,8 +5,8 @@ from models.runner import Runner
 import repositories.runner_repository as runner_repository
 
 def save(race):
-    sql = "INSERT INTO races (title, distance, elevation, runner_time, runner_id) VALUES (%s, %s, %s, %s, %s) RETURNING *"
-    values = [race.title, race.distance, race.elevation, race.runner_time, race.runner.id]
+    sql = "INSERT INTO races (title, distance, elevation) VALUES (%s, %s, %s) RETURNING *"
+    values = [race.title, race.distance, race.elevation,]
     results = run_sql(sql, values)
     id = results[0]['id']
     race.id = id
@@ -19,7 +19,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        races = Race(row['title'], row['distance'],row['elevation'], row['runner_time'], runner, row['id'])
+        races = Race(row['title'], row['distance'],row['elevation'], row['id'])
         races.append(race)
     return races
 
@@ -31,12 +31,12 @@ def select(id):
 
     if result is not None:
         runner = runner_repository.select(result['runner_id'])
-        race = Race(row['title'], row['distance'],row['elevation'], row['runner_time'], runner, row['id'])
+        race = Race(row['title'], row['distance'],row['elevation'], row['id'])
     return race
 
 def update(race):
-    sql = "UPDATE races SET (title, distance, elevation, runner_time, runner_id) VALUES (%s, %s, %s, %s, %s) RETURNING *"
-    values = [race.title, race.distance, race.elevation, race.runner_time, race.runner.id]
+    sql = "UPDATE races SET (title, distance, elevation) VALUES (%s, %s, %s, %s, %s) RETURNING *"
+    values = [race.title, race.distance, race.elevation]
     print(values)
     run_sql(sql, values)
     

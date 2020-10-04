@@ -27,7 +27,7 @@ runner_repository.save(runner_8)
 runner_9 = Runner("Emilie", "Forsberg")
 runner_repository.save(runner_9)
 
-race_1 = Race("Dumyat Dash", 6.2, 457)
+race_1 = Race("Dumyat Dash", 6.2, 457,)
 race_repository.save(race_1)
 race_2 = Race("Cockelroy", 3.4, 132)
 # race_repository.save(race_2)
