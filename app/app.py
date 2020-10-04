@@ -8,8 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # return render_template('index.html')
-    return "Falkirk Trail Runners Segment tracker coming soon !"
+    return render_template('index.html' title = "Falkirk Trail Runners")
 
 if __name__ =='__main__':
     app.run(debug=True)
