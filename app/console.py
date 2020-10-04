@@ -1,12 +1,18 @@
 import pdb
-from models.runner import Runner
-from models.race import Race
 
-import repositories.race_repository as race_repository
+from models.race_time import Race_time
+import repositories.race_time_repository as race_time_repository
+
+from models.runner import Runner
 import repositories.runner_repository as runner_repository
 
+from models.race import Race
+import repositories.race_repository as race_repository
+
+
+race_time_repository.delete_all()
 runner_repository.delete_all()
-# race_repository.delete_all()
+race_repository.delete_all()
 
 runner_1 = Runner("Steven", "McFarlane")
 runner_repository.save(runner_1)
@@ -30,10 +36,13 @@ runner_repository.save(runner_9)
 race_1 = Race("Dumyat Dash", 6.2, 457,)
 race_repository.save(race_1)
 race_2 = Race("Cockelroy", 3.4, 132)
-# race_repository.save(race_2)
-race_3 = Race("Ochil 2000s", "Stirling University", 33.0, 1200)
-# race_repository.save(race_3)
-race_4 = Race("EPIC Trail 10K", "Callendar House", 10, 421)
-# race_repository.save(race_4)
+race_repository.save(race_2)
+race_3 = Race("Ochil 2000s", 33.0, 1200)
+race_repository.save(race_3)
+race_4 = Race("EPIC Trail 10K", 10, 421)
+race_repository.save(race_4)
+
+race_time_1 = Race_time(race_1, runner_1, 32)
+race_time_repository.save(race_time_1)
 
 pdb.set_trace()

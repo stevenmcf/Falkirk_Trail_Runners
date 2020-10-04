@@ -3,7 +3,6 @@ class Race:
         self.title = title
         self.distance = distance
         self.elevation = elevation
-        # self.runner = runner
-        # self.runner_time = runner_time
         self.id = id
+
 
