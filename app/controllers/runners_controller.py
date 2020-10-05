@@ -11,6 +11,7 @@ def runners():
     runners = runner_repository.select_all()
     return render_template("/runners/index.html", all_runners=runners)
 
+
 # NEW
 @runners_blueprint.route("/runners/new")
 def new_runner():
@@ -28,15 +29,15 @@ def create_runner():
     runner_repository.save(new_runner)
     return redirect("/runners")
 
-# to be tested in browser
+# Now working in browser
 
 
 # EDIT
 
-@runners_blueprint.route('/runners/<id>/edit')
+@runners_blueprint.route('/runners/<id>/edit', methods=["GET"])
 def edit_runner(id):
     runner = runner_repository.select(id)
-    return render_template("runner/edit.html", runner=runner)
+    return render_template("runners/edit.html", runner=runner)
 
 # to be tested in browser
 
@@ -48,7 +49,7 @@ def update_runner(id):
     first_name = request.form["first_name"]
     last_name = request.form["last_name"]
     new_runner = Runner(first_name, last_name, id)
-    runner_repository.save(new_runner)
+    runner_repository.update(new_runner)
     return redirect("/runners")
 
 # to be tested in browser

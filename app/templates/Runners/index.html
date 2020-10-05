@@ -9,17 +9,22 @@
     <form action="/runners/new" methods=["GET"]>
     <input type="submit" value="Add New Runner">
     </form>
+
 </section>
 
-{% for runner in all_runners %}
+    {% for runner in all_runners %}
 
-<table>
-    </tr>
-        <th>Runner's ID</th>
-           <tr> <td> {{runner.id}}{{runner.first_name}} {{runner.last_name}} </td></tr>       
-    <th>Runners Name</th>
+        <section>
+            <p>{{runner.last_name}}, {{ runner.first_name }} </p>
+                <form action="/runners/{{ runner.id }}/edit" methods="GET">
+                    <input type="submit" value="Edit">
+                </form>
+            
+                <form action="/runners/{{ runner.id }}/delete" method="POST">
+                    <input type="submit" value="Delete">
+                </form>
+        </section>
 
-    </table>
 
     {% endfor %}
 

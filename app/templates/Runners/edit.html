@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Update {{ runner.first_name}} {{ runner.last_name }} !</h3>
+
+        <form action="/runners/{{ runner.id }}" method="POST">
+                <div>
+                <input type="text" name="first_name" id="runner-first-name" value="{{ runner.first_name }}" required> <br>
+                <input type="text" name="last_name" id="runner-last-name" value="{{ runner.last_name }}" required> <br>
+                <input type="submit" value="Update">
+                </div>
+        </form>
+
+
+<aside>
+        <form action="/" method="POST"></form>
+        <input type="submit" value="Home">
+           
+</aside>
+
+{% endblock content %}
