@@ -15,24 +15,43 @@ def save(race_result):
     id = results[0]['id']
     race_result.id = id
 
+# Cant get to work - speak to grown up tomorrow. 
 
-def select_all():
-    race_result = []
-    sql = "SELECT * FROM race_results"
-    results = run_sql(sql)
-    for result in results:
-        race = race_repository.select(result["race_id"])
-        runner = runner_repository.select(result["runner_id"])
-        race_result = Race_result(race, runner, time, result["id"])
-        race_result.append(time)
+
+# def select_all():
+#     race_results = []
+#     sql = "SELECT * FROM race_results"
+#     results = run_sql(sql)
+#     for result in results:
+#         race = race_repository.select(result["race_id"])
+#         runner = runner_repository.select(result["runner_id"])
+#         race_result = Race_result(race, runner, time, row["id"])
+#         race_results.append(race_result)
+#     return race_result
+
+
+# def show_results_by_race(race.title):
+#     sql = "SELECT race_results.* FROM race_results WHERE runner_id = %s"
+#     values = [id]
+#     result = run_sql(sql, values)[0]
+#     race_result = Race_result(result["race"], result["runner"], result["time"], result["id"])
+#     return race_result
+
+# def show_results_by_runner(runner_id):
+#     sql = "SELECT race_results.* FROM race_results WHERE runner_id = %s"
+#     values = [id]
+#     result = run_sql(sql, values)[0]
+#     race_result = Race_result(result["race"], result["runner"], result["time"], result["id"])
+#     return race_result
+    
 
 def select(id):
     sql = "SELECT * FROM race_results WHERE id = %s"
     values = [id]
-    results = run_sql(sql, values)[0]
-    race = race_repository.select(result["race_id"])
-    runner = runner_repository.select(result["runner_id"])
-    race_result = Race_result(race, runner, time, result["id"])
+    result = run_sql(sql, values)[0]
+    # race = race_repository.select(result["race_id"])
+    # runner = runner_repository.select(result["runner_id"])
+    race_result = Race_result(result["race"], result["runner"], result["time"], result["id"])
     return race_result
 
 def update(race_result):

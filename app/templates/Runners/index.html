@@ -21,13 +21,14 @@
                 </form>
             
                 <form action="/runners/{{ runner.id }}/delete" method="POST">
-                    <input type="submit" value="Delete">
+                    <label for="delete">Delete this runner ?</label>
+                    <input type="submit" id="delete" name="delete" value="Yes">
                 </form>
-        </section>
+                <br>
+                {% endfor %}
+            </section>
 
+{% endblock %}
 
-    {% endfor %}
-
-    {% endblock %}
     
 

@@ -1,0 +1,30 @@
+<!-- show race results here in table -->
+
+{% extends 'races/base.html' %}
+
+{% block content %}
+    <h2> Recent Results</h2>
+
+
+    </section>
+    <section>
+        <form action="/races/{{ race_results.race.id }}/race_results" method="POST">
+            <input type="submit" value="Recent Results">
+        </form>
+    </section>
+
+    <section>
+   {% for results in race_result  %}
+       
+   <p>
+       {{race.id}}, {{race.date}}, {{race.distance}}, {{race.elevation}}
+   </p>
+   
+   
+
+   {% endfor %}
+
+</section>
+    
+
+{% endblock content %}

@@ -8,8 +8,14 @@
         <form action="/races/new" methods=["GET"]>
         <input type="submit" value="Add New Race">
         </form>
-    
     </section>
+    <p>
+    <section>
+        <form action="/races/race_result" methods=["GET"]>
+        <input type="submit" value="Show Recent Results">
+        </form>
+    </section>
+    </p>
 
     <section>
    {% for race in all_races  %}
@@ -17,12 +23,14 @@
    <p>
        {{race.title}}, {{race.date}}, {{race.distance}}, {{race.elevation}}
    </p>
+   
         <form action="/races/{{ race.id }}/edit" methods="GET">
             <input type="submit" value="Edit">
         </form>
 
         <form action="/races/{{ race.id }}/delete" method="POST">
-            <input type="submit" value="Delete">
+            <label for="delete">Delete this race ?</label>
+            <input type="submit" id="delete" name="delete" value="Yes">
         </form>
    
 

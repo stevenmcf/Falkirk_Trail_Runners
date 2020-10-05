@@ -44,7 +44,7 @@ def edit_runner(id):
 
 # UPDATE
 
-# doesnt save the update to browser/database ??? Why not !
+# works in browser
 
 
 @runners_blueprint.route("/runners/<id>", methods=["POST"])

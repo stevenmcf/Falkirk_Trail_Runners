@@ -1,0 +1,16 @@
+body {
+    background: url('/static/images/background1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: hsl(133, 88%, 25%);
+    font-family: "Nunito", sans-serif;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  /* .menu {
+    display: inline;
+    background-color: white;
+    color: teal;
+
+  } */
