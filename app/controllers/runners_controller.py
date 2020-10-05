@@ -9,7 +9,7 @@ runners_blueprint = Blueprint("runners", __name__)
 @runners_blueprint.route("/runners")
 def runners():
     runners = runner_repository.select_all()
-    return render_template("runners/index.html", all_runners=runners)
+    return render_template("/runners/index.html", all_runners=runners)
 
 # NEW
 @runners_blueprint.route("/runners/new")
@@ -18,15 +18,18 @@ def new_runner():
 # tested and working in browser
 # formatting required
 
+
 # CREATE
-@runners_blueprint.route("/runners/new", methods=["POST"])
+@runners_blueprint.route("/runners", methods=["POST"])
 def create_runner():
     first_name = request.form["first_name"]
     last_name = request.form["last_name"]
     new_runner = Runner(first_name, last_name, id)
     runner_repository.save(new_runner)
     return redirect("/runners")
-# to be tested in browswer
+
+# to be tested in browser
+
 
 # EDIT
 
@@ -40,7 +43,7 @@ def edit_runner(id):
 
 # UPDATE
 
-@runners_blueprint.route("runners/<id>", methods=["POST"])
+@runners_blueprint.route("/runners/<id>", methods=["POST"])
 def update_runner(id):
     first_name = request.form["first_name"]
     last_name = request.form["last_name"]
@@ -52,7 +55,7 @@ def update_runner(id):
 
 
 # DELETE
-@runners_blueprint.route("runners/<id>/delete", methods = ["POST"])
+@runners_blueprint.route("/runners/<id>/delete", methods = ["POST"])
 def delete_runner(id):
     runner_repository.delete(id)
     return redirect ("/runners")

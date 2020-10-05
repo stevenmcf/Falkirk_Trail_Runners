@@ -4,11 +4,11 @@
 
 <h2> Runner directory</h2>
 
+
 <section>
-    <a href="runners/new">
-        <button>Add New Runners</button>
-    </a>
-   
+    <form action="/runners/new" methods=["GET"]>
+    <input type="submit" value="Add New Runner">
+    </form>
 </section>
 
 {% for runner in all_runners %}

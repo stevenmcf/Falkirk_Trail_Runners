@@ -35,11 +35,12 @@ def edit_race(id):
 # UPDATE
 
 
+
 # DELETE
 
 # HTML to be written and tested
 
-@races_blueprint.route("races/<id>/delete", methods = ["POST"])
+@races_blueprint.route("/races/<id>/delete", methods = ["POST"])
 def delete_runner(id):
     races_repository.delete(id)
     return redirect ("/races")
