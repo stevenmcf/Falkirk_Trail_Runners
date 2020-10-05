@@ -19,7 +19,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        races = Race(row['title'], row['date'], row['distance'],row['elevation'], row['id'])
+        race = Race(row['title'], row['date'], row['distance'],row['elevation'], row['id'])
         races.append(race)
     return races
 

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Add a new trail race here !</h3>
+
+        <form action="/races" method="POST">
+                <div>
+                <input type="text" name="title" id="title" placeholder="What's it called ?"> <br>
+                <input type="text" name="date" id="date" placeholder="YYYY-MM-DD"> <br>
+                <input type="text" name="distance" id="distance" placeholder="How Far ? (kms)"> <br>
+                <input type="text" name="elevation" id="elevation" placeholder="How high ? (m)"> <br>
+                <input type="submit" value="Submit">
+                </div>
+        </form>
+
+
+<aside>
+        <form action="/" method="POST"></form>
+        <input type="submit" value="Home">
+           
+</aside>
+
+{% endblock content %}
+

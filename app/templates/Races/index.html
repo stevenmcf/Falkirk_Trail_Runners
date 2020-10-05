@@ -4,9 +4,21 @@
     <h1>Falkirk Trail Runners !</h1>
     <h2> Race Schedule</h2>
 <section>
-    <table>
-        
-    </table>
+   {% for race in all_races  %}
+       
+   <p>
+       {{race.title}}, {{race.date}}, {{race.distance}}, {{race.elevation}}
+   </p>
+        <form action="/races/{{ race.id }}/edit" methods="GET">
+            <input type="submit" value="Edit">
+        </form>
+
+        <form action="/races/{{ race.id }}/delete" method="POST">
+            <input type="submit" value="Delete">
+        </form>
+   
+
+   {% endfor %}
 
 </section>
     
