@@ -39,10 +39,13 @@ def edit_runner(id):
     runner = runner_repository.select(id)
     return render_template("runners/edit.html", runner=runner)
 
-# to be tested in browser
+# works in browser
 
 
 # UPDATE
+
+# doesnt save the update to browser/database ??? Why not !
+
 
 @runners_blueprint.route("/runners/<id>", methods=["POST"])
 def update_runner(id):
@@ -51,9 +54,6 @@ def update_runner(id):
     new_runner = Runner(first_name, last_name, id)
     runner_repository.update(new_runner)
     return redirect("/runners")
-
-# to be tested in browser
-
 
 # DELETE
 @runners_blueprint.route("/runners/<id>/delete", methods = ["POST"])

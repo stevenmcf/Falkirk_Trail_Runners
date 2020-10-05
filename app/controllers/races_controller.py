@@ -6,10 +6,6 @@ import repositories.race_repository as race_repository
 races_blueprint = Blueprint("races", __name__)
 
 # # INDEX
-# @races_blueprint.route("/races")
-# def races():
-#     races = race_repository.select_all()
-#     return render_template("/races/index.html")
 
 @races_blueprint.route("/races")
 def race():
@@ -37,24 +33,33 @@ def create_race():
 
 # EDIT
 
-# HTML to be written and tested
-
 @races_blueprint.route('/races/<id>/edit')
 def edit_race(id):
     race = race_repository.select(id)
-    return render_template("race/edit.html", race=race)
+    return render_template("races/edit.html", race=race)
 
 
 # UPDATE
 
+# doesnt save the update to browser/database ??? Why not !
+
+@races_blueprint.route("/races/<id>", methods=["POST"])
+def update_race(id):
+    title = request.form["title"]
+    date = request.form["date"]
+    distance = request.form["distance"]
+    elevation = request.form["elevation"]
+    new_race = Race(title, date, distance, elevation, id)
+    race_repository.update(new_race)
+    return redirect("/races")
+
 
 
 # DELETE
-
-# HTML to be written and tested
+# functionality in browser
 
 @races_blueprint.route("/races/<id>/delete", methods = ["POST"])
 def delete_runner(id):
-    races_repository.delete(id)
+    race_repository.delete(id)
     return redirect ("/races")
 

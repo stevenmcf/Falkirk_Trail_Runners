@@ -1,9 +1,17 @@
 {% extends 'races/base.html' %}
 
 {% block content %}
-    <h1>Falkirk Trail Runners !</h1>
     <h2> Race Schedule</h2>
-<section>
+
+
+    <section>
+        <form action="/races/new" methods=["GET"]>
+        <input type="submit" value="Add New Race">
+        </form>
+    
+    </section>
+
+    <section>
    {% for race in all_races  %}
        
    <p>

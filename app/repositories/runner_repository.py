@@ -33,8 +33,9 @@ def select(id):
 # Tested and works in python3 debugger
 
 def update(runner):
-    sql = "UPDATE runner SET (first_name, last_name) = (%s, %s) WHERE id = %s"
+    sql = "UPDATE runners SET (first_name, last_name) = (%s, %s) WHERE id = %s"
     values = [runner.first_name, runner.last_name, runner.id]
+    print(values)
     run_sql(sql, values)
 
 def delete_all():

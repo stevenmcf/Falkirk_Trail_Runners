@@ -1,8 +1,23 @@
-{% extends 'base.html' %}
+{% extends 'races/base.html' %}
 
 {% block content %}
     
+<h3>Update {{ race.title }} !</h3>
 
+        <form action="/races/{{ race.id }}" method="POST">
+                <div>
+                    <input type="text" name="title" id="title" value="{{ race.title }}" required> <br>
+                    <input type="text" name="date" id="date" value="{{ race.date }}" required> <br>
+                    <input type="text" name="distance" id="distance" value="{{ race.distance }}" required> <br>
+                    <input type="text" name="elevation" id="elevation" value="{{ race.elevation }}" required> <br>
+                    <input type="submit" value="Update">
+                </div>
+        </form>
+
+
+<aside>
+        <form action="/" method="POST"></form>
+        <input type="submit" value="Home">
 
 
 {% endblock content %}

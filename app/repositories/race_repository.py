@@ -24,19 +24,15 @@ def select_all():
     return races
 
 def select(id):
-    race = None
-    sql = "SELECT * from runners WHERE id = %s"
+    sql = "SELECT * from races WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
-
-    if result is not None:
-        runner = runner_repository.select(result['runner_id'])
-        race = Race(row['title'], row['date'], row['distance'],row['elevation'], row['id'])
+    race = Race(result['title'], result['date'], result['distance'], result['elevation'], result['id'])
     return race
 
 def update(race):
-    sql = "UPDATE races SET (title, date, distance, elevation) VALUES (%s, %s, %s, %s) RETURNING *"
-    values = [race.title, race.date, race.distance, race.elevation]
+    sql = "UPDATE races SET (title, date, distance, elevation) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [race.title, race.date, race.distance, race.elevation, race.id]
     print(values)
     run_sql(sql, values)
     
