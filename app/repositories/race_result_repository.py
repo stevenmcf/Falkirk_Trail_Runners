@@ -18,16 +18,16 @@ def save(race_result):
 # Cant get to work - speak to grown up tomorrow. 
 
 
-# def select_all():
-#     race_results = []
-#     sql = "SELECT * FROM race_results"
-#     results = run_sql(sql)
-#     for result in results:
-#         race = race_repository.select(result["race_id"])
-#         runner = runner_repository.select(result["runner_id"])
-#         race_result = Race_result(race, runner, time, row["id"])
-#         race_results.append(race_result)
-#     return race_result
+def select_all():
+    race_results = []
+    sql = "SELECT * FROM race_results"
+    results = run_sql(sql)
+    for result in results:
+        race = race_repository.select(result["race_id"])
+        runner = runner_repository.select(result["runner_id"])
+        race_result = Race_result(race, runner, time, row["id"])
+        race_results.append(race_result)
+    return race_result
 
 
 # def show_results_by_race(race.title):
@@ -37,37 +37,46 @@ def save(race_result):
 #     race_result = Race_result(result["race"], result["runner"], result["time"], result["id"])
 #     return race_result
 
+    # (Pdb) race_result_repository.show_results_by_race()
+    # *** AttributeError: module 'repositories.race_result_repository' has no attribute 'show_results_by_race'
+
 # def show_results_by_runner(runner_id):
 #     sql = "SELECT race_results.* FROM race_results WHERE runner_id = %s"
 #     values = [id]
 #     result = run_sql(sql, values)[0]
 #     race_result = Race_result(result["race"], result["runner"], result["time"], result["id"])
 #     return race_result
-    
 
-def select(id):
-    sql = "SELECT * FROM race_results WHERE id = %s"
-    values = [id]
-    result = run_sql(sql, values)[0]
-    # race = race_repository.select(result["race_id"])
-    # runner = runner_repository.select(result["runner_id"])
-    race_result = Race_result(result["race"], result["runner"], result["time"], result["id"])
-    return race_result
+    # (Pdb) race_result_repository.show_results_by_runner(3)
+    # *** AttributeError: module 'repositories.race_result_repository' has no attribute 'show_results_by_runner'
 
-def update(race_result):
-    sql = "UPDATE race_results SET (race_id, runner_id, time) = (%s, %s, %s) WHERE id is = %s"
-    values = [race_result.race.id, race_result.runner.id, race_result.time ]
-    results = run_sql(sql, values)
+# def select(id):
+#     sql = "SELECT * FROM race_results WHERE id = %s"
+#     values = [id]
+#     result = run_sql(sql, values)[0]
+#     # race = race_repository.select(result["race_id"])
+#     # runner = runner_repository.select(result["runner_id"])
+#     race_result = Race_result(result["race_id"], result["runner_id"], result["time"], result["id"])
+#     return race_result
+
+#   race_result_repository.select(2)
+#   returns the following in Pdb
+#     # *** KeyError: 'race'
+
+# def update(race_result):
+#     sql = "UPDATE race_results SET (race_id, runner_id, time) = (%s, %s, %s) WHERE id is = %s"
+#     values = [race_result.race.id, race_result.runner.id, race_result.time ]
+#     results = run_sql(sql, values)
 
 
-def delete_all():
-    sql = "DELETE FROM race_results"
-    run_sql(sql)
+# def delete_all():
+#     sql = "DELETE FROM race_results"
+#     run_sql(sql)
 
 
-def delete(id):
-    sql = "DELETE FROM race_results WHERE id = %s"
-    values = [id]
-    run_sql(sql, values)
+# def delete(id):
+#     sql = "DELETE FROM race_results WHERE id = %s"
+#     values = [id]
+#     run_sql(sql, values)
 
 
