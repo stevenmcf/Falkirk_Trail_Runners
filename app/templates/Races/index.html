@@ -10,21 +10,25 @@
         </form>
     </section>
     <p>
-    <section>
+    <!-- <section>
         <a href="/races/race_result"></a>
         <form action="/races/race_result" methods=["GET"]>
         <input type="submit" value="Show Recent Results">
         </form>
-    </section>
+    </section> -->
     </p>
 
     <section>
    {% for race in all_races  %}
        
    <p>
-       Race Name: {{race.title}}, <br> Race Date: {{race.date}},<br> Total Distance: {{race.distance}},<br> Total Elevation: {{race.elevation}}
+       Race Name: <a href="/races/{{ race.id }}">{{ race.title }}</a>
+       <br> Race Date: {{race.date}},<br> Total Distance: {{race.distance}},<br> Total Elevation: {{race.elevation}}
    </p>
-   
+        <aside>
+            <img src="" alt="{{ race.title }}">
+        </aside>
+        <br>
         <form action="/races/{{ race.id }}/edit" methods="GET">
             <input type="submit" value="Edit">
         </form>

@@ -10,11 +10,14 @@
     <input type="submit" value="Add New Runner">
     </form>
 
-</section>
+</section class=Runner-index>
 
     {% for runner in all_runners %}
 
         <section>
+            <aside>
+                <img src="/" alt="runner">
+            </aside>
             <p>{{runner.last_name}}, {{ runner.first_name }} </p>
                 <form action="/runners/{{ runner.id }}/edit" methods="GET">
                     <input type="submit" value="Edit">

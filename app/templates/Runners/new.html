@@ -7,10 +7,10 @@
         <form action="/runners" method="POST">
                 <div>
                 <label for="first-name">First Name :</label>
-                <input type="text" name="first_name" id="runner-first-name" placeholder="first name"> <br>
+                <input type="text" name="first_name" id="runner-first-name" placeholder="{{ first_name }}"> <br>
                 <br>
                 <label for="last-name">Last Name :</label>
-                <input type="text" name="last_name" id="runner-last-name" placeholder="last name"> <br>
+                <input type="text" name="last_name" id="runner-last-name" placeholder="{{ last_name }}"> <br>
                 <br>
                 <input type="submit" value="Submit">
                 </div>
@@ -18,9 +18,9 @@
 
 
 <aside>
-        <form action="/" method="POST"></form>
+        <form action="/" method="POST">
         <input type="submit" value="Home">
-           
+</form>
 </aside>
 
 {% endblock content %}

@@ -5,35 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     
 </head>
 <body>
     <header>
         <!-- header start -->
-        <h1><>Falkirk Trail Runners - Race Manager</h1>
             <nav class="menu">
+                <h1 class=Logo >Falkirk Trail Runners - Race Manager</h1>
                 <ul>
-                    <li>
-                        <h3>Races</h3>
-                            <li><a href="/races">Races</a></li>
-                            <li><a href="/races/new">Add New Race</a></li>
+                    <li><a href="/races">Races</a></li>
+                            <!-- <li><a href="/races/new">Add New Race</a></li>
                             <li><a href="/races/results">Recent Results</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3>Runners</h3>
-                        <ul>
-                            <li><a href="/runners">Runners</a></li>
-                            <li><a href="/runners/new">Add New Runner</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3>Upcoming Races</h3>
-                        <ul>
-                            <li><a href="/Upcoming_races">Upcoming_Races</a></li>
-                        </ul>
-                    </li>
+                        </ul> -->
+                    <li><a href="/runners">Runners</a></li>
+                            <!-- <li><a href="/runners/new">Add New Runner</a></li> -->
+                    <li><a href="/Results"> Recent Results</a></li>
                 </ul>
             </nav>
     </header>
@@ -43,5 +32,8 @@
             
     {% endblock content %}
 </Section>
+<footer>
+    @2020 - JustPeaking
+</footer>
 </body>
 </html>

@@ -19,7 +19,7 @@ CREATE TABLE races (
 
 CREATE TABLE race_results (
     id SERIAL PRIMARY KEY,
-    race_id INT REFERENCES races(id),
+    race_id INT REFERENCES races(id) ON DELETE CASCADE,
     runner_id INT REFERENCES runners(id) ON DELETE CASCADE,
     time  DECIMAL
 )

@@ -3,39 +3,80 @@
 {% extends 'races/base.html' %}
 
 {% block content %}
-    <h2> Recent Results</h2>
-
-
+    
     <!-- </section>
     <section>
         <form action="/races/{{ race.id }}/race_results" method="POST">
             <input type="submit" value="Recent Results">
         </form>
     </section> -->
-    <h1> {{ race.title }} </h1>
-    
-    <section>
-    {% for runner in runners  %}
-        
-    <p>
-        {{runner.first_name}}
-    </p>
-        
-        {% for result in race_results %} 
-            {% if result.runner.id == runner.id and result.race.id == race.id %}
-        <p>    
-            {{ result.time }}
+    <hgroup>
+        <h1> {{ race.title }} </h1>
+        <h2>Race Details :
+        </h2>
+    </hgroup>
+        <p>
+            When is it ? : {{race.date}},<br> How Far ? : {{race.distance}} Km's,<br> How High ? : {{race.elevation}} Meters
         </p>
-            
-            {% endif %}
+    
+    <aside>
+        <img src="" alt="{{ race.title }}">
+    </aside>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="4">Most Recent Results</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Position :</td>
+                <td>First Name :</td>
+                <td>Last Name :</td>
+                <td>Time :</td>
+            </tr>
+        <!-- </tbody>
+    </table>
+    <h2> Recent Results</h2>
+        <section> -->
+        {% for runner in runners  %}
+            <tr>
+                <td>
+
+                </td>
+                <td>
+                    {{ runner.first_name }}
+                </td>
+                <td>
+                    {{ runner.last_name }}
+                </td>
+                <td>
+                    {% for result in race_results %} 
+                        {% if result.runner.id == runner.id and result.race.id == race.id %}    
+                        {{ result.time }}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+<!--            
+
+                Name: {{runner.first_name}} {{runner.last_name}}
+                    <p>
+                Time: 
+                {% for result in race_results %} 
+                    {% if result.runner.id == runner.id and result.race.id == race.id %}    
+                    {{ result.time }}
+                    </p>
+              
+                {% endif %}
+
+            {% endfor %}
+        
+         -->
 
         {% endfor %}
-    
-    
 
-    {% endfor %}
-
-    </section>
+        </section>
     
 
-{% endblock content %}
+    {% endblock content %}

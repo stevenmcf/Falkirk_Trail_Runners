@@ -63,6 +63,8 @@ def show_results(id):
     race = race_repository.select(id)
     runners = race_repository.select_runners_by_race(id)
     results = race_result_repository.select_all()
+    # print(results)
+    # sorted_results = results.sort()
     return render_template("/races/show.html", race=race, runners=runners, race_results=results)
 
 
@@ -70,7 +72,7 @@ def show_results(id):
 # DELETE
 # functionality in browser
 
-@races_blueprint.route("/races/<id>/delete", methods = ["POST"])
+@races_blueprint.route("/races/<id>/delete", methods=["POST"])
 def delete_race(id):
     race_repository.delete(id)
     return redirect ("/races")
