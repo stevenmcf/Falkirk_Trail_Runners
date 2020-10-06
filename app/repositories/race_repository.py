@@ -24,11 +24,26 @@ def select_all():
     return races
 
 def select(id):
+    # Bring the race in
     sql = "SELECT * from races WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
     race = Race(result['title'], result['date'], result['distance'], result['elevation'], result['id'])
+  
     return race
+
+def select_runners_by_race(id):
+      # Bring the runners in from that race
+    # sql query that selects the runners from the runners table - inner joins your race results table where the race_id = id
+    sql = "SELECT runners.* FROM runners INNER JOIN race_results ON race_results.runner_id = runners.id WHERE race_results.race_id = %s"
+    # runners = loop through and create a runner object for each result coming back
+    values = [id]
+    results = run_sql(sql,values)
+    runners = []
+    for result in results:
+        runner = Runner(result["first_name"], result["last_name"], result['id'])
+        runners.append(runner)
+    return runners
 
 def update(race):
     sql = "UPDATE races SET (title, date, distance, elevation) = (%s, %s, %s, %s) WHERE id = %s"

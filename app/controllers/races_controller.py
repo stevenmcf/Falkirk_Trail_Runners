@@ -14,6 +14,8 @@ def race():
     races = race_repository.select_all()
     return render_template("races/index.html", all_races=races)
 
+    # create your show route that triggers the race repo select - render the template which will pass in the race object and the list of runner objects
+
 # NEW
 @races_blueprint.route("/races/new")
 def new_race():
@@ -56,17 +58,20 @@ def update_race(id):
     return redirect("/races")
 
 # SHOW RESULTS 
-# @races_blueprint.route("/races/race_results")
-# def show_results():
-#     race_result = race_result_repository.select_all()
-#     return render_template("/races/race_results.html", race_result=race_result)
+@races_blueprint.route("/races/<id>")
+def show_results(id):
+    race = race_repository.select(id)
+    runners = race_repository.select_runners_by_race(id)
+    results = race_result_repository.select_all()
+    return render_template("/races/show.html", race=race, runners=runners, race_results=results)
+
 
 
 # DELETE
 # functionality in browser
 
 @races_blueprint.route("/races/<id>/delete", methods = ["POST"])
-def delete_runner(id):
+def delete_race(id):
     race_repository.delete(id)
     return redirect ("/races")
 

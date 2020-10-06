@@ -25,9 +25,9 @@ def select_all():
     for result in results:
         race = race_repository.select(result["race_id"])
         runner = runner_repository.select(result["runner_id"])
-        race_result = Race_result(race, runner, time, row["id"])
+        race_result = Race_result(race, runner, result["time"], result["id"])
         race_results.append(race_result)
-    return race_result
+    return race_results
 
 
 # def show_results_by_race(race.title):
@@ -37,8 +37,8 @@ def select_all():
 #     race_result = Race_result(result["race"], result["runner"], result["time"], result["id"])
 #     return race_result
 
-    # (Pdb) race_result_repository.show_results_by_race()
-    # *** AttributeError: module 'repositories.race_result_repository' has no attribute 'show_results_by_race'
+#     (Pdb) race_result_repository.show_results_by_race()
+#     *** AttributeError: module 'repositories.race_result_repository' has no attribute 'show_results_by_race'
 
 # def show_results_by_runner(runner_id):
 #     sql = "SELECT race_results.* FROM race_results WHERE runner_id = %s"
@@ -69,14 +69,14 @@ def select_all():
 #     results = run_sql(sql, values)
 
 
-# def delete_all():
-#     sql = "DELETE FROM race_results"
-#     run_sql(sql)
+def delete_all():
+    sql = "DELETE FROM race_results"
+    run_sql(sql)
 
 
-# def delete(id):
-#     sql = "DELETE FROM race_results WHERE id = %s"
-#     values = [id]
-#     run_sql(sql, values)
+def delete(id):
+    sql = "DELETE FROM race_results WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
 
 

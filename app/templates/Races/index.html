@@ -11,6 +11,7 @@
     </section>
     <p>
     <section>
+        <a href="/races/race_result"></a>
         <form action="/races/race_result" methods=["GET"]>
         <input type="submit" value="Show Recent Results">
         </form>
@@ -21,7 +22,7 @@
    {% for race in all_races  %}
        
    <p>
-       {{race.title}}, {{race.date}}, {{race.distance}}, {{race.elevation}}
+       Race Name: {{race.title}}, <br> Race Date: {{race.date}},<br> Total Distance: {{race.distance}},<br> Total Elevation: {{race.elevation}}
    </p>
    
         <form action="/races/{{ race.id }}/edit" methods="GET">
@@ -29,10 +30,9 @@
         </form>
 
         <form action="/races/{{ race.id }}/delete" method="POST">
-            <label for="delete">Delete this race ?</label>
-            <input type="submit" id="delete" name="delete" value="Yes">
+            <input type="submit" value="Delete">
         </form>
-   
+   <hr>
 
    {% endfor %}
 
