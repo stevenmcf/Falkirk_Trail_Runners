@@ -7,7 +7,7 @@ body > header {
   .Header-image {
     width: 100%;
     background-image: url('/static/images/Ochils_pano.jpg');
-    
+    background size: cover;
   }
 
 
