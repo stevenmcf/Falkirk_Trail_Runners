@@ -1,0 +1,32 @@
+body > header {
+    background-color: ;
+    padding: 10px;
+    
+  }
+
+  .background-image {
+    width: 100%;
+    background-image: url('/static/images/JPlogo1.5.png');
+    
+  }
+
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    list-style: none;  
+    justify-content: space-evenly;
+    
+  } 
+
+  .menu > li {
+    display: block;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    
+  }
+  
+  .menu > li > a {
+    text-decoration: none;
+  }

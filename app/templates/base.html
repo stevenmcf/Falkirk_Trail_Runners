@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>    
-    <title>Falkirk Trail Runners</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-    
-</head>
-<body>
-    <header>
-        <!-- header start -->
-            <nav class="menu">
-                <h1 class=Logo >Falkirk Trail Runners - Race Manager</h1>
-                <ul>
-                    <li><a href="/races">Races</a></li>
-                            <!-- <li><a href="/races/new">Add New Race</a></li>
-                            <li><a href="/races/results">Recent Results</a></li>
-                        </ul> -->
-                    <li><a href="/runners">Runners</a></li>
-                            <!-- <li><a href="/runners/new">Add New Runner</a></li> -->
-                    <li><a href="/Results"> Recent Results</a></li>
-                </ul>
-            </nav>
-    </header>
-    <!-- header end -->
-<Section>
-    {% block content %}
-            
-    {% endblock content %}
-</Section>
-<footer>
-    @2020 - JustPeaking
-</footer>
-</body>
+    <head>    
+        <title>Falkirk Trail Runners</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+            <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="background-image">
+            <!-- header start -->
+                <nav>
+                    <h1 class=Logo >Falkirk Trail Runners - Race Manager</h1>
+                    <ul class=menu>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/races">Races</a></li>
+                        <li><a href="/runners">Runners</a></li>
+                        <li><a href="/results"> Recent Results</a></li>
+                    </ul>
+                </nav>
+        </header>
+        <!-- header end -->
+        <Section>
+            {% block content %}
+                    
+            {% endblock content %}
+        </Section>
+    <footer class="background-image">
+        @2020 - JustPeaking
+    </footer>
+    </body>
 </html>

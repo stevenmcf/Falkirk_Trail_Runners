@@ -1,6 +1,6 @@
 <!-- show race results here in table -->
 
-{% extends 'races/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
     
@@ -39,10 +39,12 @@
     </table>
     <h2> Recent Results</h2>
         <section> -->
+            {% set count = namespace(value=1) %}
         {% for runner in runners  %}
             <tr>
                 <td>
-
+                    {{ count.value }}
+  {% set count.value = count.value + 1 %}
                 </td>
                 <td>
                     {{ runner.first_name }}
@@ -59,7 +61,6 @@
                 </td>
             </tr>
 <!--            
-
                 Name: {{runner.first_name}} {{runner.last_name}}
                     <p>
                 Time: 
@@ -67,13 +68,10 @@
                     {% if result.runner.id == runner.id and result.race.id == race.id %}    
                     {{ result.time }}
                     </p>
-              
                 {% endif %}
-
             {% endfor %}
-        
          -->
-
+         
         {% endfor %}
 
         </section>

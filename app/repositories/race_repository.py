@@ -35,7 +35,7 @@ def select(id):
 def select_runners_by_race(id):
       # Bring the runners in from that race
     # sql query that selects the runners from the runners table - inner joins your race results table where the race_id = id
-    sql = "SELECT runners.* FROM runners INNER JOIN race_results ON race_results.runner_id = runners.id WHERE race_results.race_id = %s"
+    sql = "SELECT runners.*, race_results.time FROM runners INNER JOIN race_results ON race_results.runner_id = runners.id WHERE race_results.race_id = %s ORDER BY race_results.time"
     # runners = loop through and create a runner object for each result coming back
     values = [id]
     results = run_sql(sql,values)

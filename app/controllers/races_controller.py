@@ -63,9 +63,10 @@ def show_results(id):
     race = race_repository.select(id)
     runners = race_repository.select_runners_by_race(id)
     results = race_result_repository.select_all()
+    counter = 1
     # print(results)
     # sorted_results = results.sort()
-    return render_template("/races/show.html", race=race, runners=runners, race_results=results)
+    return render_template("/races/show.html", race=race, runners=runners, race_results=results, counter=counter)
 
 
 
