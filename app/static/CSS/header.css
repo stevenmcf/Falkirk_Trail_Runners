@@ -4,9 +4,9 @@ body > header {
     
   }
 
-  .background-image {
+  .Header-image {
     width: 100%;
-    background-image: url('/static/images/JPlogo1.5.png');
+    background-image: url('/static/images/Ochils_pano.jpg');
     
   }
 

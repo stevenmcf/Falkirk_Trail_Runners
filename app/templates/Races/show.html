@@ -40,11 +40,11 @@
     <h2> Recent Results</h2>
         <section> -->
             {% set count = namespace(value=1) %}
-        {% for runner in runners  %}
+            {% for runner in runners  %}
             <tr>
                 <td>
                     {{ count.value }}
-  {% set count.value = count.value + 1 %}
+                    {% set count.value = count.value + 1 %}
                 </td>
                 <td>
                     {{ runner.first_name }}
@@ -60,20 +60,10 @@
                     {% endfor %}
                 </td>
             </tr>
-<!--            
-                Name: {{runner.first_name}} {{runner.last_name}}
-                    <p>
-                Time: 
-                {% for result in race_results %} 
-                    {% if result.runner.id == runner.id and result.race.id == race.id %}    
-                    {{ result.time }}
-                    </p>
-                {% endif %}
-            {% endfor %}
-         -->
-         
         {% endfor %}
-
+        <div>
+            <a href="/races/{{ race.id }}/edit">Edit Race</a>
+        </div>
         </section>
     
 

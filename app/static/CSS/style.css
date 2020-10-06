@@ -3,10 +3,21 @@ body {
     background-size: cover;
     background-repeat: no-repeat; */
     color: hsl(133, 88%, 25%);
-    font-family: "Nunito", sans-serif;
+    /* font-family: "Nunito", sans-serif; */
+    
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     padding: 0px;
     margin: 0px;
   }
+  
+  /* #grid-container {
+    display: grid;
+    grid-template-areas:
+      'header'
+      'main'
+      'footer';
+  } */
+
   
   /* .menu a {
     margin: 10px;

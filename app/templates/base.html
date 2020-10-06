@@ -10,26 +10,28 @@
             <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header class="background-image">
-            <!-- header start -->
-                <nav>
-                    <h1 class=Logo >Falkirk Trail Runners - Race Manager</h1>
-                    <ul class=menu>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/races">Races</a></li>
-                        <li><a href="/runners">Runners</a></li>
-                        <li><a href="/results"> Recent Results</a></li>
-                    </ul>
-                </nav>
-        </header>
-        <!-- header end -->
-        <Section>
-            {% block content %}
-                    
-            {% endblock content %}
-        </Section>
-    <footer class="background-image">
-        @2020 - JustPeaking
-    </footer>
+        <div id="Main-Header">
+            <header class="Header-image">
+                <!-- header start -->
+                    <nav>
+                        <h1 class=Logo >Falkirk Trail Runners - Race Manager</h1>
+                        <ul class=menu>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/races">Races</a></li>
+                            <li><a href="/runners">Runners</a></li>
+                            <li><a href="/results"> Recent Results</a></li>
+                        </ul>
+                    </nav>
+            </header>
+            <!-- header end -->
+                <Section>
+                    {% block content %}
+                            
+                    {% endblock content %}
+                </Section>
+            <footer class="background-image">
+                @2020 - JustPeaking
+            </footer>
+        </div>
     </body>
 </html>

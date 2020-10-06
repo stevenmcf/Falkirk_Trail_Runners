@@ -68,7 +68,12 @@ def show_results(id):
     # sorted_results = results.sort()
     return render_template("/races/show.html", race=race, runners=runners, race_results=results, counter=counter)
 
+# SHOW ALL RESULTS
 
+@races_blueprint.route("/results")
+def results():
+    results = race_result_repository.select_all()
+    return render_template("races/results.html", all_results=results)
 
 # DELETE
 # functionality in browser
