@@ -104,6 +104,7 @@ justify-content: space-around;
 table, th, td {
   border: 1px solid slategrey;
   border-collapse: separate;
+  text-align: justify;
 }
 
 .race-container {
@@ -140,6 +141,17 @@ table, th, td {
     align-content: center;
   }
 
+  .race-container {
+    display: flex;
+    flex-flow: row; 
+    justify-content: space-evenly;
+    padding: 30px;
+    border-radius: 30px;
+  }
+
+  .results {
+    border-radius: 30px;
+  }
 
 .runner-options {
   /* display: flex;

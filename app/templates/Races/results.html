@@ -6,15 +6,17 @@
 
 
 
-<section>
-    <div>
-        RECENT Results
-    </div>
+    <section>
+        <div>
+            <h4>RECENT Results</h4>
+        </div>
+    </section>
+    <section class="race-container">   
         {% for race in races  %}
         <table class="results">
             <thead>
                 <tr>
-                    <th colspan="4">Most Recent Results</th>
+                    <th colspan="4">{{ race.title }}</th>
                 </tr>
             </thead>
             <tbody>
