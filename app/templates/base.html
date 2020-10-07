@@ -9,13 +9,13 @@
             <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
             <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     </head>
-    <body>
-        <div id="Main-Header">
-            <header class="Header-image">
+    <body id="app">
+        <article >
+            <header class="header-image">
                 <!-- header start -->
                     <nav>
-                        <h1 class=Logo >Falkirk Trail Runners</h1>
-                        <ul class=menu>
+                        <h1 class="logo" >Falkirk Trail Runners</h1>
+                        <ul class="menu">
                             <li><a href="/">Home</a></li>
                             <li><a href="/races">Races</a></li>
                             <li><a href="/runners">Runners</a></li>
@@ -24,14 +24,22 @@
                     </nav>
             </header>
             <!-- header end -->
+            <!-- main content body -->
+            <main>
                 <Section>
                     {% block content %}
                             
                     {% endblock content %}
                 </Section>
-            <footer class="background-image">
-                @2020 - JustPeaking
-            </footer>
-        </div>
+            </main>
+            <!-- main content body ends -->
+            <!-- footer starts -->
+                <footer class="JP">
+                        <div >
+                            @2020 - JustPeaking
+                        </div>
+                </footer>
+            <!-- footer ends -->
+        </article>
     </body>
 </html>

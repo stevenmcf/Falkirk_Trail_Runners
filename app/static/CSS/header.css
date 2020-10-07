@@ -1,4 +1,4 @@
-body > header {
+/* body > header {
     background-color: ;
     padding: 10px;
     
@@ -11,13 +11,7 @@ body > header {
   }
 
 
-  .menu {
-    display: flex;
-    flex-direction: row;
-    list-style: none;  
-    justify-content: space-evenly;
-    
-  } 
+
 
   .menu > li {
     display: block;
@@ -27,6 +21,4 @@ body > header {
     
   }
   
-  .menu > li > a {
-    text-decoration: none;
-  }
+ */
