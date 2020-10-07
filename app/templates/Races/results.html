@@ -2,47 +2,55 @@
 
 {% block content %}
 
-<H4> ALL RACES CURRENTLY CANCELLED DUE TO COVID - DON'T BLAME US !</H4>
+<H4> NO UPCOMING RACES DUE TO COVID. ALL RACES CURRENTLY CANCELLED - DON'T BLAME US !</H4>
+
 
 
 <section>
-{% for race in races  %}
-<table>
-    <thead>
-        <tr>
-            <th colspan="4">Most Recent Results</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Position :</td>
-            <td>First Name :</td>
-            <td>Last Name :</td>
-            <td>Time :</td>
-        </tr>
-        {% set count = namespace(value=1) %}
+    <div>
+        RECENT Results
+    </div>
+        {% for race in races  %}
+        <table class="results">
+            <thead>
+                <tr>
+                    <th colspan="4">Most Recent Results</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Position :</td>
+                    <td>First Name :</td>
+                    <td>Last Name :</td>
+                    <td>Time :</td>
+                </tr>
+                {% set count = namespace(value=1) %}
 
-            {% for result in all_results %}
-            {% for runner in runners  %}
-                {% if runner.id == result.runner.id and race.id == result.race.id %}
-                    <tr>
-                        <td>
-                            {{ count.value }}
-                            {% set count.value = count.value + 1 %}
-                        </td>
-                        <td>
-                            {{ runner.first_name }}
-                        </td>
-                        <td>
-                            {{ runner.last_name }}
-                        </td>
-                        <td>
-                            {{ result.time}}
-                        </td>
-                    </tr>
-                {% endif %}
-            {% endfor %}
-        {% endfor %}
+                    {% for result in all_results %}
+                    {% for runner in runners  %}
+                        {% if runner.id == result.runner.id and race.id == result.race.id %}
+                            <tr>
+                                <td>
+                                    {{ count.value }}
+                                    {% set count.value = count.value + 1 %}
+                                </td>
+                                <td>
+                                    {{ runner.first_name }}
+                                </td>
+                                <td>
+                                    {{ runner.last_name }}
+                                </td>
+                                <td>
+                                    {{ result.time}}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+
+        </tbody>
+        </table>
+
 {% endfor %}
 </section>
 

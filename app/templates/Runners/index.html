@@ -1,37 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<h2> Runner directory</h2>
-
-
+<article class="runner-title">
 <section>
-    <form action="/runners/new" methods=["GET"]>
-    <input type="submit" value="Add New Runner">
-    </form>
-
-</section class=Runner-index>
+    <h2> Runner directory</h2>
+    <div class="runner-options">
+        <form class="table-button" action="/runners/new" methods=["GET"]>
+        <input class="table-button1" type="submit" value="Add New Runner">
+        </form>
+    </div>
+</section>
 
     {% for runner in all_runners %}
 
-        <section>
-            <aside>
-                <img src="/" alt="runner">
-            </aside>
-            <p>{{runner.last_name}}, {{ runner.first_name }} </p>
-                <form action="/runners/{{ runner.id }}/edit" methods="GET">
-                    <input type="submit" value="Edit">
-                </form>
+        <section class="runner-detail">
+            <h3> NAME :{{ runner.first_name }} {{runner.last_name}}  </h3>
+                <aside class="runner_picture">
+                    <img class="runner-img" src="/static/images/babyyes.jpeg" alt="runner">
+                </aside>      
             
-                <form action="/runners/{{ runner.id }}/delete" method="POST">
-                    <label for="delete">Delete this runner ?</label>
-                    <input type="submit" id="delete" name="delete" value="Yes">
+                <form class="table-button" action="/runners/{{ runner.id }}/edit" methods="GET">
+                    <input class=table-button1 type="submit" value="Edit">
                 </form>
-                <hr>
+                <form class="table-button" action="/runners/{{ runner.id }}/delete" method="POST">
+                    <!-- <label for="delete">Delete this runner ?</label> -->
+                    <input class=table-button1 type="submit" id="delete" name="delete" value="Delete ? Click if yes">
+                </form>
                 
                 {% endfor %}
             </section>
-
+</article>
 {% endblock %}
 
     

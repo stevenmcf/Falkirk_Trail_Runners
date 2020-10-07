@@ -1,5 +1,4 @@
 <!-- show race results here in table -->
-
 {% extends 'base.html' %}
 
 {% block content %}
@@ -14,14 +13,17 @@
         <h1> {{ race.title }} </h1>
         <h2>Details :</h2>
     </hgroup>
-        <p>
+        <section>
             When is it ? : {{race.date}},<br> How Far ? : {{race.distance}} Km's,<br> How High ? : {{race.elevation}} Meters
-        </p>
+        </section>
     
-    <aside>
+    <div>
         <img src="" alt="{{ race.title }}">
-    </aside>
-    <table>
+    </div>
+    <div>
+        <a href="/races/{{ race.id }}/edit">Edit Race</a>
+    </div>
+    <table class="results">
         <thead>
             <tr>
                 <th colspan="4">Most Recent Results</th>
@@ -60,9 +62,8 @@
                 </td>
             </tr>
             {% endfor %}
-        <div>
-            <a href="/races/{{ race.id }}/edit">Edit Race</a>
-        </div>
+        </tbody>
+        </table>
     </div>   
 
 {% endblock content %}
