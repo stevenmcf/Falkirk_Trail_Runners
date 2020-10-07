@@ -1,36 +1,51 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<article class="runner-title">
-<section>
-    <h2> Runner directory</h2>
-    <div class="runner-options">
-        <form class="table-button" action="/runners/new" methods=["GET"]>
-        <input class="table-button1" type="submit" value="Add New Runner">
-        </form>
-    </div>
-</section>
+    <section class="runner-title">
+        <h2> Runner directory</h2>
+        <div class="runner-options">
+            <form class="table-button" action="/runners/new" methods=["GET"]>
+            <input class="table-button1" type="submit" value="Add New Runner">
+            </form>
+        </div>
+    </section>
 
-    {% for runner in all_runners %}
+    <section>
+        <table>
+                <thead>
+                    <tr>
+                        <th colspan="4">Who's Running ?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mug Shot:</td>
+                        <td>Name:</td>
+                        <td>Edit Details ?</td>
+                        <td>Delete this Runner ?</td>
+                    </tr>
+                    {% for runner in all_runners  %}
+                    <tr>
+                        <td><img src="/static/images/babyyes.jpeg" alt="runner" width="75" heigh="75"></td>
+                        <td>{{ runner.first_name }} {{ runner.last_name }}</td>
+                        <td> 
+                            <form class="table-button" action="/runners/{{ runner.id }}/edit" methods="GET">
+                            <input class=table-button1 type="submit" value="Edit">
+                            </form>
+                        </td>
+                        <td>
+                            
+                            <form class="table-button" action="/runners/{{ runner.id }}/delete" method="POST">
+                                <input class=table-button1 type="submit" id="delete" name="delete" value="Delete">
+                                </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
 
-        <section class="runner-detail">
-            <h3> NAME :{{ runner.first_name }} {{runner.last_name}}  </h3>
-                <aside class="runner_picture">
-                    <img class="runner-img" src="/static/images/babyyes.jpeg" alt="runner">
-                </aside>      
-            
-                <form class="table-button" action="/runners/{{ runner.id }}/edit" methods="GET">
-                    <input class=table-button1 type="submit" value="Edit">
-                </form>
-                <form class="table-button" action="/runners/{{ runner.id }}/delete" method="POST">
-                    <!-- <label for="delete">Delete this runner ?</label> -->
-                    <input class=table-button1 type="submit" id="delete" name="delete" value="Delete ? Click if yes">
-                </form>
-                
-                {% endfor %}
-            </section>
-</article>
-{% endblock %}
+    </section>
+            {% endblock %}
 
     
 
