@@ -9,37 +9,31 @@
             <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
             <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     </head>
-    <body id="app">
-        <article >
-            <header class="header-image">
-                <!-- header start -->
-                    <nav>
-                        <h1 class="logo" >Falkirk Trail Runners</h1>
-                        <ul class="menu">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/races">Races</a></li>
-                            <li><a href="/runners">Runners</a></li>
-                            <li><a href="/results"> Recent Results</a></li>
-                        </ul>
-                    </nav>
-            </header>
-            <!-- header end -->
-            <!-- main content body -->
-            <main>
-                <Section>
-                    {% block content %}
-                            
-                    {% endblock content %}
-                </Section>
-            </main>
-            <!-- main content body ends -->
-            <!-- footer starts -->
+        <body id="app">
+                <header class="header-image">
+                    <!-- header start -->
+                    <h1 class="logo">Falkirk Trail Runners</h1>
+                        <nav>
+                            <ul class="menu">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/races">Races</a></li>
+                                <li><a href="/runners">Runners</a></li>
+                                <li><a href="/results"> Recent Results</a></li>
+                            </ul>
+                        </nav>
+                </header>
+                <!-- header end -->
+                <!-- main content body -->
+                <main>
+                        {% block content %}
+                                
+                        {% endblock content %}
+                </main>
+                <!-- main content body ends -->
+                <!-- footer starts -->
                 <footer class="JP">
-                        <div >
-                            @2020 - JustPeaking
-                        </div>
+                    @2020 - JustPeaking
                 </footer>
-            <!-- footer ends -->
-        </article>
-    </body>
+                <!-- footer ends -->
+        </body>
 </html>

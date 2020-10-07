@@ -3,7 +3,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
+    <div>
     <!-- </section>
     <section>
         <form action="/races/{{ race.id }}/race_results" method="POST">
@@ -12,8 +12,7 @@
     </section> -->
     <hgroup>
         <h1> {{ race.title }} </h1>
-        <h2>Race Details :
-        </h2>
+        <h2>Details :</h2>
     </hgroup>
         <p>
             When is it ? : {{race.date}},<br> How Far ? : {{race.distance}} Km's,<br> How High ? : {{race.elevation}} Meters
@@ -60,11 +59,10 @@
                     {% endfor %}
                 </td>
             </tr>
-        {% endfor %}
+            {% endfor %}
         <div>
             <a href="/races/{{ race.id }}/edit">Edit Race</a>
         </div>
-        </section>
-    
+    </div>   
 
-    {% endblock content %}
+{% endblock content %}

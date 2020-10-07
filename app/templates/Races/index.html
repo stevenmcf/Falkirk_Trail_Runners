@@ -1,47 +1,52 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2> Race Schedule / Results</h2>
+    <section class="race-details">
+        <h2> Race Details</h2>
 
 
-    <section>
-        <h3><a href="/races/new">Add New Race</a></h3>
+    <a href="/races/new">Add New Race</a>
+
+
+    </section>
+
+
         <!-- <form action="/races/new" methods=["GET"]>
         <input type="submit" value="Add New Race">
         </form> -->
+    <section class="race-table">
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="6">Race Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Name:</td>
+                    <td>Date:</td>
+                    <td>Distance (Km):</td>
+                    <td>Elevation (m):</td>
+                    <td>Edit Details</td>
+                    <td>Delete Race</td>
+                </tr>
+                {% for race in all_races  %}
+                <tr>
+                    <td><a href="/races/{{ race.id }}">{{ race.title }}</a></td>
+                    <td>{{ race.date }}</td>
+                    <td>{{ race.distance }}</td>
+                    <td>{{ race.elevation }}</td>
+                    <td><a href="/races/{{ race.id }}/edit"> Edit Details </a></td>
+                    <td>
+                        <form class="table-button" action="/races/{{ race.id }}/delete" method="POST">
+                        <input class="table-button1" type="submit" value="Delete Race">
+                        
+                    </form>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </section>
-    <p>
-    <!-- <section>
-        <a href="/races/race_result"></a>
-        <form action="/races/race_result" methods=["GET"]>
-        <input type="submit" value="Show Recent Results">
-        </form>
-    </section> -->
-    </p>
-
-    <section>
-   {% for race in all_races  %}
-       
-   <p>
-       Race Name: <a href="/races/{{ race.id }}">{{ race.title }}</a>
-       <br> Race Date: {{race.date}},<br> Total Distance: {{race.distance}},<br> Total Elevation: {{race.elevation}}
-   </p>
-        <aside>
-            <img src="" alt="{{ race.title }}">
-        </aside>
-        <br>
-        <form action="/races/{{ race.id }}/edit" methods="GET">
-            <input type="submit" value="Edit">
-        </form>
-
-        <form action="/races/{{ race.id }}/delete" method="POST">
-            <input type="submit" value="Delete">
-        </form>
-   <hr>
-
-   {% endfor %}
-
-</section>
     
 
 {% endblock content %}

@@ -20,7 +20,7 @@ def save(race_result):
 
 def select_all():
     race_results = []
-    sql = "SELECT * FROM race_results ORDER BY race_id"
+    sql = "SELECT * FROM race_results ORDER BY time"
     results = run_sql(sql)
     for result in results:
         race = race_repository.select(result["race_id"])
@@ -30,7 +30,8 @@ def select_all():
     return race_results
 
 # return a race result sorting by time, displaying runners.
-
+# def show_results_for_Races()
+#     sql = "SELECT runners.* FROM races INNER JOIN race_results ON race.id = race_results.race_id INNER JOIN runners ON race_results.runner_id = runners.id
 
 
 # def show_results_by_race(race_id):

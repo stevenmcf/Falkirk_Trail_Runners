@@ -4,6 +4,7 @@ from models.race import Race
 import repositories.race_repository as race_repository
 from models.race_result import Race_result
 import repositories.race_result_repository as race_result_repository
+import repositories.runner_repository as runner_repository
 
 races_blueprint = Blueprint("races", __name__)
 
@@ -73,7 +74,9 @@ def show_results(id):
 @races_blueprint.route("/results")
 def results():
     results = race_result_repository.select_all()
-    return render_template("races/results.html", all_results=results)
+    races = race_repository.select_all()
+    runners = runner_repository.select_all()
+    return render_template("races/results.html", all_results=results, races=races, runners=runners)
 
 # DELETE
 # functionality in browser
